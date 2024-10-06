@@ -5,7 +5,16 @@
 2. `cd ~/ros2_ws`
 3. `source /opt/ros/humble/setup.zsh`
 4. `source install/setup.zsh`
-5. `ros2 run arv_embedded dual_odrive_controller`
+5. run embedded node: `ros2 run arv_embedded dual_odrive_controller`
+
+**If the node says calibration complete before doing anything:**
+1. Stop the node.
+2. Open a new terminal.
+3. `odrivetool`
+4. `odrv0.clear_errors()`
+5. `odrv1.clear_errors()`
+6. `quit()`
+7. restart arv_embedded node.
 
 
 ## Navigation
