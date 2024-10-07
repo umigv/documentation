@@ -27,6 +27,7 @@
 **Note the static transform publisher will not need to be called when running the sensors stack.**
 
 ## Sensors 
+LiDAR
 1. Plug in and make sure it shows wired connected in the network settings
 2. `sudo wireshark`
    a. On this specific laptop ethernet is called enp48s0
@@ -47,6 +48,8 @@ roslaunch velodyne_pointcloud VLP16_points.launch
 Change global option fixed frame to velodyne
 Add pointcloud2
 
-make sure there is a sensors_scripts folder from sensor_stack in the catkin_ws/src
+make sure there is a sensors_scripts folder from sensor_stack in the ros2_ws/src
 In separate terminal: rviz
+
+SLAM
 
