@@ -36,10 +36,10 @@
 
       hook.afterEach(function (html, next) {
         // check if the html is empty if it is then refetch the page
-        // if (html.startsWith('<div id="docsify-darklight-theme"><p>.</p></div>')) {
-        //   console.log('Redirecting to home page');
-        //   window.location.replace(window.location.origin + "/#/");
-        // }
+        if (html.startsWith('<div id="docsify-darklight-theme"><p>.</p></div>')) {
+          console.log('Redirecting to home page');
+          window.location.replace(window.location.origin + "/#/");
+        }
         next(html);
       });
     };
