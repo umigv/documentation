@@ -1,55 +1,57 @@
 # Documentation for running all ARV software
 
-## Embedded
-1. Open 1 terminal
-2. `cd ~/ros2_ws`
-3. `source /opt/ros/humble/setup.zsh`
-4. `source install/setup.zsh`
-5. run embedded node: `ros2 run arv_embedded dual_odrive_controller`
+## How to run the documentation locally:
+1. Clone the repository
+2. The documentation is written using a tool called `docsify`. To install `docsify`, run the following command:
+    ```bash
+    npm install -g docsify-cli
+    ```
+3. To run the documentation locally, run the following command:
+   
+    ```bash
+      docsify serve docs
+      ```
+4. Open a browser and navigate to `http://localhost:3000`
 
-**If the node says calibration complete before doing anything:**
-1. Stop the node.
-2. Open a new terminal.
-3. `odrivetool`
-4. `odrv0.clear_errors()`
-5. `odrv1.clear_errors()`
-6. `quit()`
-7. restart arv_embedded node.
+## Updating documentation with content in this repository
+1. Navigate to the `docs` directory
+2. Update the content in the markdown files in the `docs/<subteam>` directory to the respective markdown files in the repository
+3. Update the `_sidebar.md` file with the new content
+4. Commit the changes and push to the repository
+5. The documentation will be updated automatically
 
+## Adding documentation from other GitHub repositories
+1. Navigate to the respective directory where the documentation would be accessed on the website within the `docs` directory
+2. Create a blank markdown file with a placeholder comment at the top of the file ex. `<---Placeholder--->`
+3. In `docs/_sidebar.md`, add a new entry for the documentation with the path to the new markdown file
+4. In `docsify-plugin-test.js`, add a new entry for the documentation in the ```filesMap``` object with the path to the new markdown file and the URL to the raw markdown file in the repository. Ensure the path follows the format `#/subteam/filename`
+5. Commit the changes and push to the repository 
 
-## Navigation
-1. Open 3 terminals.
-2. `cd ~/ros2_ws` in each terminal.
-3. run `source /opt/ros/humble/setup.zsh` && `source install/setup.zsh` in each terminal.
-4. Terminal 1: `ros2 launch marvin_simulation simulation.launch.py world:=igvc_flat`
-5. Terminal 2: `ros2 launch src/nav_stack/launch/nav_stack.launch.py`
-6. Terminal 3: `ros2 run tf2_ros static_transform_publisher "0" "0" "0" "0" "0" "0" "map" "odom"` \
-**Note the static transform publisher will not need to be called when running the sensors stack.**
-
-## Sensors 
-LiDAR
-1. Plug in and make sure it shows wired connected in the network settings
-2. `sudo wireshark`
-   a. On this specific laptop ethernet is called enp48s0
-   b. If the lidar isn’t working you’ll see a message like this: “Who has 192.168.191.1? Tell 192.168.191.254” (the ips might be different, so use the ones you see in place of these for the rest of the guide)
-3. To fix, you need to run this script with the correct wired port and ips from wireshark: https://github.com/umigv/sensors_stack/blob/hersh-devel/sensors_scripts/scripts/config_velodyne_connection.sh
-
-These are the specific commands:
+#### Example: 
+`docs/cv/onboarding.md`:
+```markdown
+1. <---Placeholder--->
+2. > Repository: [CV-Onboarding](https://github.com/umigv/CV-Onboarding)
+3. ---
 ```
-sudo ifconfig enp48s0 192.168.191.1 # IP always the same
-sudo route add 192.168.191.254 enp48s0 # IP of the Velodyne (from wireshark)
+`docs/_sidebar.md`:
+```markdown
+...
+- Computer Vision
+  ...
+  - [Onboarding](cv/onboarding.md)
+  ...
 ```
-(The ethernet port should match the one on your computer, and the ips you should use are the ones you found in wireshark)
-
-4. To test if this works without ROS, run sudo wireshark again, and choose the ethernet port. You should see a bunch of UDP messages instead of the “who has” message
+`docsify-plugin-test.js`:
+```javascript
+const filesMap = {
+    ...
+    "#/cv/onboarding": "https://raw.githubusercontent.com/umigv/CV-Onboarding/main/README.md",
+    ...
+}
 ```
-roslaunch velodyne_pointcloud VLP16_points.launch 
-```
-Change global option fixed frame to velodyne
-Add pointcloud2
 
-make sure there is a sensors_scripts folder from sensor_stack in the ros2_ws/src
-In separate terminal: rviz
 
-SLAM
-
+## Known Issues
+1. Using direct links to the documentation site for paths that fetch content from other repositories will not work. The content will not be displayed. To access the content, navigate to the respective directory in the sidebar. Finding a solution to this issue.
+2. External links in the documentation will not work unless the link is to another URL (ex. having a link to another MD file in the external repo). Finding a solution to this issue.
