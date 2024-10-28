@@ -1,6 +1,6 @@
 # Using MQTT To Communicate Between Jetson and Laptop
 
-!> This guide assumes you have a Jetson and a laptop connected to the same network and that static IP addresses are used for both devices. If you do not have a static IP address, please follow the guide static ip guide [here](https://google.com).
+!> This guide assumes you have a Jetson and a laptop connected to the same network and that static IP addresses are used for both devices. If you do not have a static IP address, please follow the guide static ip guide [here](/jetson/static-ip.md).
 
 ## Install MQTT on Jetson
 1. Install the MQTT broker on Jetson

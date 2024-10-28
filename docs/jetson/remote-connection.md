@@ -61,7 +61,7 @@ There are a few ways to connect to the Jetson Orin remotely. This document will 
 4. Enter the password you set in step 4 of the Setting up VNC section.
    
 
-!> **Note:** To connect to the Jetson Orin remotely, you must be on the same network as the Jetson Orin. More than likely, you will be using a static IP address for the Jetson Orin. Setting the static IP guide is coming soon.
+!> **Note:** To connect to the Jetson Orin remotely, you must be on the same network as the Jetson Orin. More than likely, you will be using a static IP address for the Jetson Orin. If you are not using a static IP address, please follow the guide [here](/jetson/static-ip.md).
 
 !> **Note:** If you are not connected to MWireless, you will need the UMich VPN to connect to the Jetson Orin remotely. More information on the UMich VPN can be found [here](https://its.umich.edu/enterprise/wifi-networks/vpn/getting-started).
 

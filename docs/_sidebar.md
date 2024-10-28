@@ -3,6 +3,7 @@
 - Jetson
   - [MQTT](jetson/mqtt.md)
   - [Remote Connection](jetson/remote-connection.md)
+  - [Static IP](jetson/static-ip.md)
 - Computer Vision
   - [ARV Scene Perception](cv/scene_perception.md)
   - [YOLO Stack](cv/yolo_stack.md)
