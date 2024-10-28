@@ -2,6 +2,7 @@
   - [Home](/)
 - Jetson
   - [MQTT](jetson/mqtt.md)
+  - [Remote Connection](jetson/remote-connection.md)
 - Computer Vision
   - [ARV Scene Perception](cv/scene_perception.md)
   - [YOLO Stack](cv/yolo_stack.md)
