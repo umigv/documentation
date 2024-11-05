@@ -5,7 +5,7 @@
 There are a few ways to connect to the Jetson Orin remotely. This document will cover the following methods:
 
 - VNC
-- SSH (Coming soon)
+- SSH
 
 ## VNC
 
@@ -68,3 +68,25 @@ There are a few ways to connect to the Jetson Orin remotely. This document will 
 
 ## References
 [VNC Setup](https://developer.nvidia.com/embedded/learn/tutorials/vnc-setup)
+
+
+## SSH
+
+### Connecting to the Jetson Orin using SSH
+
+#### Windows 
+1. Download and install XMing [here](https://sourceforge.net/projects/xming/).
+2. Download and install Putty [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
+3. Launch XMing on Windows client
+4. Launch Putty
+   In the **Session** section enter the IP address of the Jetson Orin 
+5. Navigate on the sidebar to: **SSH** -> **X11**
+   a. Enable X11 forwarding
+   b. X display location = **:0.0**
+   c. MIT-Magic-Cookie-1
+   d. X authority file for local display = point to the Xming.exe executable
+   
+#### MacOS
+1. Run `brew install --cask xquartz`
+
+#### Linux 
