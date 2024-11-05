@@ -79,12 +79,12 @@ There are a few ways to connect to the Jetson Orin remotely. This document will 
 2. Download and install Putty [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 3. Launch XMing on Windows client
 4. Launch Putty
-   In the **Session** section enter the IP address of the Jetson Orin 
-5. Navigate on the sidebar to: **SSH** -> **X11**
-   a. Enable X11 forwarding
-   b. X display location = **:0.0**
-   c. MIT-Magic-Cookie-1
-   d. X authority file for local display = point to the Xming.exe executable
+    - In the **Session** section enter the IP address of the Jetson Orin 
+5. Navigate on the sidebar to: **SSH** -> **X11** \n
+    a. Enable X11 forwarding
+    b. X display location = **:0.0**
+    c. MIT-Magic-Cookie-1
+    d. X authority file for local display = point to the Xming.exe executable
    
 #### MacOS
 1. Run `brew install --cask xquartz`
