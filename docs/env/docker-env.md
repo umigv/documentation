@@ -62,9 +62,27 @@ In order to ensure that everyone working on Maverick is working in the same envr
    - Remember to use git best practices and always use your own git branch.
 
 4. **Stopping and Removing the Docker Container:**
-   ** Running docker containers is highly draining to your laptop battery. Always remember to shut down containers when they are not in use instead of letting them run in the background. 
+   - Running docker containers is highly draining to your laptop battery. Always remember to shut down containers when they are not in use instead of letting them run in the background. 
    - To stop the running container, type `exit` in the container terminal.
    - Alternatively, you can press the stop (block) or the trash can icon next to the container in the Docker Desktop application. 
    - In the terminal run the command `docker rmi [container name]` to delete a container. 
 
-By following these steps, you should be able to set up and use the pre-built Docker image for Maverick, and work within the container to pull and manage your GitHub repositories. If you encounter any issues, refer to the Docker documentation or seek assistance from your team.
+## Opening the Cloned Repository in VSCode
+1. **Open VSCode:**
+   - With the container running, launch Visual Studio Code on your machine.
+
+2. **Open the Cloned Repository:**
+   - In the terminal, navigate to the directory where you cloned the GitHub repository inside the Docker container.
+   - Use the following command to open the repository in VSCode:
+     ```sh
+     code .
+     ```
+   - This command will open the current directory in VSCode. Ensure that you have the VSCode Remote - Containers extension installed to work seamlessly with Docker containers.
+
+3. **Install VSCode Remote - Containers Extension:**
+   - Open Visual Studio Code.
+   - Go to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window or by pressing `Ctrl+Shift+X`.
+   - Search for "Remote - Containers" and install the extension by Microsoft.
+   - This extension allows you to open any folder inside (or mounted into) a Docker container and take advantage of VSCode's full feature set.
+
+By following these steps, you should be able to set up and use the pre-built Docker image for Maverick, work within the container to pull and manage your GitHub repositories, and open the cloned repository in VSCode for development. If you encounter any issues, refer to the Docker documentation or seek assistance from your team.
