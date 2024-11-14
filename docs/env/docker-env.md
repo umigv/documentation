@@ -36,9 +36,12 @@ In order to ensure that everyone working on Maverick is working in the same envr
    - Run the command `docker images` to list all available Docker images.
    - Ensure that the **'maverick'** image is listed.
 
+4. **Deleting a Docker Image**
+   - If you'd like to restart you can delete a docker image by running the command `docker rmi [image_name]`. In this case our image_name is *maverick*.
+
 ## Running Maverick Code 
 1. **Run the Docker Container:**
-   - Run the command `docker run -it maverick` to start a new container from the pre-built image. A new root should open in terminal. 
+   - Run the command `docker run -it --name [container_name] maverick` to start a new container from the pre-built image. You can choose container_name to be whatever you like, we recommend: *maverick_container*. A new root should open in terminal. 
    - If you open Docker Desktop, you should see this container running. 
 2. **Enter the Workspace Directory:**
    - Once inside the Docker container, navigate to the `workspace` directory by running the command:
@@ -62,5 +65,6 @@ In order to ensure that everyone working on Maverick is working in the same envr
    ** Running docker containers is highly draining to your laptop battery. Always remember to shut down containers when they are not in use instead of letting them run in the background. 
    - To stop the running container, type `exit` in the container terminal.
    - Alternatively, you can press the stop (block) or the trash can icon next to the container in the Docker Desktop application. 
+   - In the terminal run the command `docker rmi [container name]` to delete a container. 
 
 By following these steps, you should be able to set up and use the pre-built Docker image for Maverick, and work within the container to pull and manage your GitHub repositories. If you encounter any issues, refer to the Docker documentation or seek assistance from your team.
