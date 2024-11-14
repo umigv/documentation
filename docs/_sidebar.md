@@ -1,5 +1,6 @@
 - Getting Started
   - [Home](/)
+  - [Docker Environment Setup](/env/docker-env.md)
 - Jetson
   - [MQTT](jetson/mqtt.md)
   - [Remote Connection](jetson/remote-connection.md)
