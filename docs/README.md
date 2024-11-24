@@ -7,15 +7,23 @@
 4. `source install/setup.zsh`
 5. run embedded node: `ros2 run arv_embedded dual_odrive_controller`
 
-**If the node says calibration complete before doing anything:**
-1. Stop the node.
-2. Open a new terminal.
-3. `odrivetool`
-4. `odrv0.clear_errors()`
-5. `odrv1.clear_errors()`
-6. `quit()`
-7. restart arv_embedded node.
+**If starting for the first time:**
+1. Open a new terminal.
+2. `odrivetool`
+3. `odrv0.axis0.requested_state = AXIS_STATE_FULL_CALIBRATION_SEQUENCE()`
+4. `wait for calibration`
+5. `odrv1.axis0.requested_state = AXIS_STATE_FULL_CALIBRATION_SEQUENCE()`
+6. `wait for calibration`
+7. `quit()`
+8. start arv_embedded node.
 
+**If odrive errors:**
+1. Open a new terminal.
+2. `odrivetool`
+3. `odrv1.clear_errors()`
+4. `odrv0.clear_errors()`
+5. `quit()`
+6. restart arv_embedded node.
 
 ## Navigation
 1. Open 3 terminals.
